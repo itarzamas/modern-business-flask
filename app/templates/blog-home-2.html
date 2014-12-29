@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+    {% macro render_blog(blog) %}
+        <div class="row">
+            <div class="col-md-1 text-center">
+                <p><i class="fa fa-{{ blog|attr('icon')|default('camera') }} fa-4x"></i>
+                </p>
+                <p>{{ blog.date_added }}</p>
+            </div>
+            <div class="col-md-5">
+                <a href="{{ blog.post_list_url }}">
+                    <img class="img-responsive img-hover" src="http://placehold.it/500x300" alt="">
+                </a>
+            </div>
+            <div class="col-md-6">
+                <h3>
+                    <a href="blog-post.html">{{ blog.title }}</a>
+                </h3>
+                <p>by <a href="#">{{ blog.author.username }}</a>
+                </p>
+                <p>
+                    {{ blog|attr('description')|default('') }}
+                </p>
+                <a class="btn btn-primary" href="{{ blog.post_list_url }}">Read More <i class="fa fa-angle-right"></i></a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+    {% endmacro %}
+
+    {% block page_header %}
+                <h1 class="page-header">Blog Home Two
+                    <small>Subheading</small>
+                </h1>
+    {% endblock %}
+    {% block breadcrumbs %}
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li class="active">Blog Home Two</li>
+                </ol>
+    {% endblock %}
+    {% block center_content %}
+        {% for blog in blogs %}
+            {{ render_blog(blog) }}
+        {% endfor %}
+    {% endblock %}
+    {% block pagination %}
+        {% set simple = true %}
+        {% include 'includes/_pagination.html' with context %}
+    {% endblock %}

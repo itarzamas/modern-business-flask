@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+    {% block container_div %}
+        <div class="container-fluid">
+    {% endblock %}
+    {% block page_heading %}
+        <div class="row">
+            <div class="col-lg-12">
+                {% block page_header %}
+                    <h1 class="page-header">Sidebar Page
+                        <small>Subheading</small>
+                    </h1>
+                {% endblock %}
+                {% block breadcrumbs %}
+                    <ol class="breadcrumb">
+                        <li><a href="index.html">Home</a>
+                        </li>
+                        <li class="active">Sidebar Page</li>
+                    </ol>
+                {% endblock %}
+            </div>
+        </div>
+    {% endblock %}
+    {% block content %}
+        <div class="row">
+        {% block left_sidebar %}
+            <!-- Sidebar Column -->
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a href="index.html" class="list-group-item">Home</a>
+                    <a href="about.html" class="list-group-item">About</a>
+                    <a href="services.html" class="list-group-item">Services</a>
+                    <a href="contact.html" class="list-group-item">Contact</a>
+                    <a href="portfolio-1-col.html" class="list-group-item">1 Column Portfolio</a>
+                    <a href="portfolio-2-col.html" class="list-group-item">2 Column Portfolio</a>
+                    <a href="portfolio-3-col.html" class="list-group-item">3 Column Portfolio</a>
+                    <a href="portfolio-4-col.html" class="list-group-item">4 Column Portfolio</a>
+                    <a href="portfolio-item.html" class="list-group-item">Single Portfolio Item</a>
+                    <a href="blog-home-1.html" class="list-group-item">Blog Home 1</a>
+                    <a href="blog-home-2.html" class="list-group-item">Blog Home 2</a>
+                    <a href="blog-post.html" class="list-group-item">Blog Post</a>
+                    <a href="full-width.html" class="list-group-item">Full Width Page</a>
+                    <a href="sidebar.html" class="list-group-item active">Sidebar Page</a>
+                    <a href="faq.html" class="list-group-item">FAQ</a>
+                    <a href="404.html" class="list-group-item">404</a>
+                    <a href="pricing.html" class="list-group-item">Pricing Table</a>
+                </div>
+            </div>
+        {% endblock %}
+        {% block center_content %}
+            {{ content|safe }}
+        {% endblock %}
+    {% endblock %}

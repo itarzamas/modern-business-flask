@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+    {% block page_header %}
+                <h1 class="page-header">FAQ
+                    <small>Subheading</small>
+                </h1>
+    {% endblock %}
+    {% block breadcrumbs %}
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li class="active">FAQ</li>
+                </ol>
+    {% endblock %}
+    {% block center_content %}
+        {{ content|safe }}
+    {% endblock %}

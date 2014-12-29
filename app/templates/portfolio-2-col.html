@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+    {% block page_header %}
+                <h1 class="page-header">Two Column Portfolio
+                    <small>Subheading</small>
+                </h1>
+    {% endblock %}
+    {% block breadcrumbs %}
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li class="active">Two Column Portfolio</li>
+                </ol>
+    {% endblock %}
+    {% block center_content %}
+        <div class="row">
+            <div class="col-md-6 img-portfolio">
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt="">
+                </a>
+                <h3>
+                    <a href="portfolio-item.html">Project One</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+            <div class="col-md-6 img-portfolio">
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt="">
+                </a>
+                <h3>
+                    <a href="portfolio-item.html">Project Two</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Projects Row -->
+        <div class="row">
+            <div class="col-md-6 img-portfolio">
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt="">
+                </a>
+                <h3>
+                    <a href="portfolio-item.html">Project Three</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+            <div class="col-md-6 img-portfolio">
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt="">
+                </a>
+                <h3>
+                    <a href="portfolio-item.html">Project Four</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Projects Row -->
+        <div class="row">
+            <div class="col-md-6 img-portfolio">
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt="">
+                </a>
+                <h3>
+                    <a href="portfolio-item.html">Project Five</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+            <div class="col-md-6 img-portfolio">
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt="">
+                </a>
+                <h3>
+                    <a href="portfolio-item.html">Project Six</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+        </div>
+        {% endblock %}
+        {% block pagination %}
+            {% include 'includes/_pagination.html' with context %}
+        {% endblock %}
