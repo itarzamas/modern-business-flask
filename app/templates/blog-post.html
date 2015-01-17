@@ -1,4 +1,57 @@
 {% extends 'base.html' %}
+    {% macro form_tag(action='',method='post') %}
+        <form action={{action}} method={{method}}>
+            {% if form.hidden_tag %}{{ form.hidden_tag() }}{% endif %}
+            {{ caller() }}
+        </form>
+    {% endmacro %}
+    {% macro form_group(label=false) %}
+        <div class=form-group>
+            {% if label %}<lable>{{ label }}</label>{% endif %}
+            {{ caller () }}
+        </div>
+    {% endmacro %}
+    {% macro comment(cmt,reply=false) %}
+        <div class="media">
+            <a class="pull-left" href="#">
+                <img class="media-object" src="http://placehold.it/64x64" alt="">
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading">{{ cmt.title }}
+                    <small>{{ cmt.date_added|human_time }}</small>
+                </h4>
+                    {{ cmt.content|safe }}
+                    {% if not reply %}
+                        {% if cmt.replys|count > 0 %}
+                            {% for c in cmt.replys  %}
+                                {% set reply = true %}
+                                {{ comment(c,reply) }}                                
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
+                    </div>
+                </div>
+    {% endmacro %}
+    {% macro categories() %}
+        <h4>Blog Categories</h4>
+        <div class="row">
+            {% set count = 1 %}
+            {% for cat in cats %}
+                {% if count == 1 %}
+                    <div class="col-lg-6">
+                        <ul class="list-unstyled">
+                {% endif %}
+                <li><a href="#">{{ cat.name }}</a></li>
+            {% if count == 4 or loop.last  %}
+                            </ul>
+                        </div>
+                    {% set count = 1 %}
+            {% else %} 
+                    {% set count = count + 1 %}
+            {% endif %}
+            {% endfor %}
+         </div>
+    {% endmacro %}
     {% block page_header %}
                 <h1 class="page-header">Blog Post
                     <small>by <a href="#">Start Bootstrap</a>
@@ -27,12 +80,17 @@
                 <!-- Comments Form -->
                 <div class="well">
                     <h4>Leave a Comment:</h4>
-                    <form role="form">
-                        <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+                    {% call form_tag() %}
+                        {% call form_group(form.email.label.text) %}
+                            {{ form.email(class_='form-control') }}
+                        {% endcall %}
+                        {% call form_group(form.comment.label.text) %}
+                            {{ form.comment(class_='form-control',rows=3) }}
+                        {% endcall %}
+                        {% call form_group() %}
+                            {{ form.submit(class_='btn btn-default') }}
+                        {% endcall %}
+                    {% endcall %}
                 </div>
 
                 <hr>
@@ -92,33 +150,9 @@
 
                 <!-- Blog Categories Well -->
                 <div class="well">
-                    <h4>Blog Categories</h4>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    {% if cats %}
+                    {{ categories() }}
+                    {% endif %}
                     <!-- /.row -->
                 </div>
 

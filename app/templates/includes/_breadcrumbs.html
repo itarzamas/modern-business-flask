@@ -1,0 +1,8 @@
+{% macro render_breadcrumbs(slug) %}
+    <ol class="breadcrumb">
+        <li><a href="index.html">Home</a></li>
+        <li class="active">{{ slug }}</li>
+    </ol>
+{% endmacro %}
+
+{{ render_breadcrumbs(slug) }}

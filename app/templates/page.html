@@ -1,17 +1,11 @@
 {% extends 'base.html' %}
+    {% import 'forms.html' as _render with context %}
     {% block page_header %}
                 <h1 class="page-header">{{ page_title }}
-                    <small>Subheading</small>
+                    <small>{{ page_name|default('') }}</small>
                 </h1>
     {% endblock %}
-    {% block breadcrumbs %}
-                <ol class="breadcrumb">
-                    <li><a href="{{ url_for('index') }}">Home</a>
-                    </li>
-                    <li class="active">{{ page_title }}</li>
-                </ol>
-    {% endblock %}
     {% block center_content %}
-        {{slug}}
        {{ content|safe }}
+       {{ _render.radio_field(test.test) }}
     {% endblock %}

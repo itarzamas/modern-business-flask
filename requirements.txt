@@ -1,0 +1,18 @@
+Faker==0.0.4
+Flask==0.9
+Flask-Admin==1.0.9
+Flask-Script==2.0.5
+Jinja2==2.7.3
+LoginUtils==1.0.1
+MarkupSafe==0.23
+SQLAlchemy==0.9.8
+WTForms==2.0.1
+Werkzeug==0.9.6
+argparse==1.2.1
+fake-factory==0.4.2
+## !! Could not determine repository location
+flask-macros==0.1.4
+inflection==0.2.1
+ipython==2.3.1
+marshmallow==1.2.0
+wsgiref==0.1.2
