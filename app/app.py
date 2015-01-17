@@ -575,7 +575,7 @@ if __name__ == "__main__":
     import sys
     #print dump_table(sys.argv[1],Model.metadata)
     #sys.exit()
-    port = '8080'
+    port = 8080
     if os.environ.get('PORT',False):
-        port = os.environ.get('PORT')
+        port = int(os.environ.get('PORT'))
     app.run(host='0.0.0.0',port=port,debug=True)
