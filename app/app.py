@@ -576,6 +576,6 @@ if __name__ == "__main__":
     #print dump_table(sys.argv[1],Model.metadata)
     #sys.exit()
     port = 8080
-    if os.environ.get('PORT',False):
+    if os.environ.get('PORT',True):
         port = int(os.environ.get('PORT'))
     app.run(host='0.0.0.0',port=port,debug=True)
